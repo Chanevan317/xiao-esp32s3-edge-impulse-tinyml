@@ -10,6 +10,8 @@
             "includePath": [
                 "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/include",
                 "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/src",
+                "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/lib/esp32s3-cam-mic_inferencing/src",
+                "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/I2S/src",
                 "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/tools/sdk/esp32s3/include/newlib/platform_include",
                 "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/tools/sdk/esp32s3/include/freertos/include",
                 "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/tools/sdk/esp32s3/include/freertos/include/esp_additions/freertos",
@@ -217,7 +219,6 @@
                 "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/HTTPClient/src",
                 "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/HTTPUpdate/src",
                 "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/HTTPUpdateServer/src",
-                "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/I2S/src",
                 "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/Insights/src",
                 "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/LittleFS/src",
                 "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/NetBIOS/src",
@@ -243,6 +244,8 @@
                 "path": [
                     "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/include",
                     "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/src",
+                    "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/lib/esp32s3-cam-mic_inferencing/src",
+                    "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/I2S/src",
                     "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/tools/sdk/esp32s3/include/newlib/platform_include",
                     "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/tools/sdk/esp32s3/include/freertos/include",
                     "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/tools/sdk/esp32s3/include/freertos/include/esp_additions/freertos",
@@ -450,7 +453,6 @@
                     "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/HTTPClient/src",
                     "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/HTTPUpdate/src",
                     "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/HTTPUpdateServer/src",
-                    "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/I2S/src",
                     "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/Insights/src",
                     "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/LittleFS/src",
                     "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/NetBIOS/src",
