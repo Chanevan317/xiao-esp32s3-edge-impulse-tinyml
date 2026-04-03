@@ -64,14 +64,31 @@ void handleDownload() {
 
 void setup() {
   Serial.begin(115200);
-  if (!SD.begin(SD_CS_PIN)) while(1);
+  while(!Serial); 
 
+  Serial.print("Connecting to SD card...");
+  if (!SD.begin(SD_CS_PIN)) {
+    Serial.println("SD card initialization failed!");
+    while(1);
+  }
+  Serial.println("SD card OK.");
+
+  Serial.print("Connecting to WiFi");
   WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) delay(500);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.println("WiFi connected.");
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
 
   server.on("/", handleRoot);
   server.on("/download", handleDownload);
   server.begin();
+  Serial.println("HTTP server started");
 }
 
 void loop() {

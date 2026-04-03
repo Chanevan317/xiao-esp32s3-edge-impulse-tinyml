@@ -1,3 +1,5 @@
 .pio
 
 lib/esp32s3-cam-mic_inferencing
+
+image_collection_python/dataset

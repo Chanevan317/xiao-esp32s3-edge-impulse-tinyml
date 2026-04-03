@@ -155,8 +155,8 @@ void loop() {
         }
 
     }
-        // Display inference result
-        if (pred_index == 0) {
+    // Display inference result
+    if (pred_index == 0) {
         if (pred_value > 0.80) {
             digitalWrite(LED_BUILTIN, HIGH);  //Turn off
             Serial.println("LED OFF");
@@ -167,7 +167,7 @@ void loop() {
             digitalWrite(LED_BUILTIN, LOW);  //Turn on
             Serial.println("LED ON");
         }
-        }
+    }
 
 
     #if EI_CLASSIFIER_HAS_ANOMALY == 1
