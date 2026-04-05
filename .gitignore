@@ -1,5 +1,5 @@
 .pio
 
-lib/esp32s3-cam-mic_inferencing
+lib/keyword_spotting_xiaoesp32s3_inferencing
 
 image_collection_python/dataset

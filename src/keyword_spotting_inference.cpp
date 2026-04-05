@@ -1,49 +1,10 @@
 #include <Arduino.h>
-/* Edge Impulse Arduino examples
- * Copyright (c) 2022 EdgeImpulse Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
 
 // If your target is limited in memory remove this macro to save 10K RAM
 #define EIDSP_QUANTIZE_FILTERBANK 0
 
-/*
- ** NOTE: If you run into TFLite arena allocation issue.
- **
- ** This may be due to may dynamic memory fragmentation.
- ** Try defining "-DEI_CLASSIFIER_ALLOCATION_STATIC" in boards.local.txt (create
- ** if it doesn't exist) and copy this file to
- ** `<ARDUINO_CORE_INSTALL_PATH>/arduino/hardware/<mbed_core>/<core_version>/`.
- **
- ** See
- ** (https://support.arduino.cc/hc/en-us/articles/360012076960-Where-are-the-installed-cores-located-)
- ** to find where Arduino installs cores on your machine.
- **
- ** If the problem persists then there's not enough memory for this model and application.
-
-
-    Tested with ESP32 Boards package version 2.0.16
- */
-
 /* Includes ---------------------------------------------------------------- */
-#include <esp32s3-cam-mic_inferencing.h>
+#include <keyword_spotting_xiaoesp32s3_inferencing.h>
 
 /* Forward declarations ---------------------------------------------------- */
 static bool microphone_inference_start(uint32_t n_samples);
@@ -118,7 +79,6 @@ void setup() {
  * @brief      Arduino main function. Runs the inferencing loop.
  */
 void loop() {
-    
     bool m = microphone_inference_record();
     if (!m) {
         ei_printf("ERR: Failed to record audio...\n");
@@ -136,39 +96,36 @@ void loop() {
         return;
     }
 
-    int pred_index = 0;    // Initialize pred_index
-    float pred_value = 0;  // Initialize pred_value
+    // --- Latching LED Logic ---
+    bool recognized = false;
 
-    // print the predictions
-    ei_printf("Predictions ");
-    ei_printf("(DSP: %d ms., Classification: %d ms., Anomaly: %d ms.)",
-                result.timing.dsp, result.timing.classification, result.timing.anomaly);
-    ei_printf(": \n");
     for (size_t ix = 0; ix < EI_CLASSIFIER_LABEL_COUNT; ix++) {
-        ei_printf("    %s: ", result.classification[ix].label);
-        ei_printf_float(result.classification[ix].value);
+        float confidence = result.classification[ix].value;
+        const char* label = result.classification[ix].label;
+
+        // Print all predictions to the monitor for debugging
+        ei_printf("    %s: ", label);
+        ei_printf_float(confidence);
         ei_printf("\n");
 
-        if (result.classification[ix].value > pred_value) {
-        pred_index = ix;
-        pred_value = result.classification[ix].value;
-        }
-
-    }
-    // Display inference result
-    if (pred_index == 0) {
-        if (pred_value > 0.80) {
-            digitalWrite(LED_BUILTIN, HIGH);  //Turn off
-            Serial.println("LED OFF");
-        }
-        }
-        if (pred_index == 2) {
-        if (pred_value > 0.80) {
-            digitalWrite(LED_BUILTIN, LOW);  //Turn on
-            Serial.println("LED ON");
+        // Check for "light" to turn ON
+        if (strcmp(label, "light") == 0 && confidence > 0.80) {
+            digitalWrite(LED_BUILTIN, LOW); // Active-Low ON
+            Serial.println(">>> State Changed: LED ON");
+            recognized = true;
+        } 
+        // Check for "dark" to turn OFF
+        else if (strcmp(label, "dark") == 0 && confidence > 0.80) {
+            digitalWrite(LED_BUILTIN, HIGH); // Active-Low OFF
+            Serial.println(">>> State Changed: LED OFF");
+            recognized = true;
         }
     }
 
+    // Optional: Visual indicator in Serial that inference finished
+    if (recognized) {
+        Serial.println("-------------------------");
+    }
 
     #if EI_CLASSIFIER_HAS_ANOMALY == 1
         ei_printf("    anomaly score: ");

@@ -10,7 +10,7 @@
             "includePath": [
                 "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/include",
                 "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/src",
-                "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/lib/esp32s3-cam-mic_inferencing/src",
+                "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/lib/keyword_spotting_xiaoesp32s3_inferencing/src",
                 "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/I2S/src",
                 "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/tools/sdk/esp32s3/include/newlib/platform_include",
                 "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/tools/sdk/esp32s3/include/freertos/include",
@@ -244,7 +244,7 @@
                 "path": [
                     "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/include",
                     "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/src",
-                    "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/lib/esp32s3-cam-mic_inferencing/src",
+                    "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/lib/keyword_spotting_xiaoesp32s3_inferencing/src",
                     "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/libraries/I2S/src",
                     "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/tools/sdk/esp32s3/include/newlib/platform_include",
                     "/home/evanch317/.platformio/packages/framework-arduinoespressif32@3.20011.230801/tools/sdk/esp32s3/include/freertos/include",
@@ -482,6 +482,8 @@
                 "ARDUINO_USB_CDC_ON_BOOT=1",
                 "ARDUINO_RUNNING_CORE=1",
                 "ARDUINO_EVENT_RUNNING_CORE=1",
+                "ARDUINO_USB_CDC_ON_BOOT=1",
+                "ARDUINO_USB_MODE=1",
                 "BOARD_HAS_PSRAM",
                 "HAVE_CONFIG_H",
                 "MBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\"",
