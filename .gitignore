@@ -1,5 +1,6 @@
 .pio
 
 lib/keyword_spotting_xiaoesp32s3_inferencing
+lib/object_detection_xiaoesp32s3_inferencing
 
-image_collection_python/dataset
+python_codes_for_image/dataset

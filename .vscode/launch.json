@@ -12,8 +12,8 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/.pio/build/audio_inference/firmware.elf",
-            "projectEnvName": "audio_inference",
+            "executable": "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/.pio/build/keyword_spotting_inference/firmware.elf",
+            "projectEnvName": "keyword_spotting_inference",
             "toolchainBinDir": "/home/evanch317/.platformio/packages/toolchain-xtensa-esp32s3/bin",
             "internalConsoleOptions": "openOnSessionStart",
             "preLaunchTask": {
@@ -25,8 +25,8 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/.pio/build/audio_inference/firmware.elf",
-            "projectEnvName": "audio_inference",
+            "executable": "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/.pio/build/keyword_spotting_inference/firmware.elf",
+            "projectEnvName": "keyword_spotting_inference",
             "toolchainBinDir": "/home/evanch317/.platformio/packages/toolchain-xtensa-esp32s3/bin",
             "internalConsoleOptions": "openOnSessionStart"
         },
@@ -34,8 +34,8 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (without uploading)",
-            "executable": "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/.pio/build/audio_inference/firmware.elf",
-            "projectEnvName": "audio_inference",
+            "executable": "/home/evanch317/Documents/GitHub/xiao-esp32s3-edge-impulse-tinyml/.pio/build/keyword_spotting_inference/firmware.elf",
+            "projectEnvName": "keyword_spotting_inference",
             "toolchainBinDir": "/home/evanch317/.platformio/packages/toolchain-xtensa-esp32s3/bin",
             "internalConsoleOptions": "openOnSessionStart",
             "loadMode": "manual"
