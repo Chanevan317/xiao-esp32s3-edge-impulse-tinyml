@@ -4,8 +4,8 @@
 #include <SD.h>
 #include <SPI.h>
 
-const char* ssid     = "Hehe";
-const char* password = "123heheh321";
+const char* ssid     = "";
+const char* password = "";
 
 #define SD_CS_PIN 21
 WebServer server(80);
